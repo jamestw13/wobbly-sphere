@@ -13,7 +13,8 @@ import GUI from 'lil-gui';
  * Base
  */
 // Debug
-const gui = new GUI({ width: 325 });
+const gui = new GUI();
+gui.close();
 const debugObject = {};
 
 // Canvas
@@ -97,8 +98,8 @@ gui.add(uniforms.uPositionFrequency, 'value', 0, 2, 0.001).name('Position Freque
 gui.add(uniforms.uTimeFrequency, 'value', 0, 2, 0.001).name('Time Frequency');
 gui.add(uniforms.uStrength, 'value', 0, 2, 0.001).name('Strength');
 
-gui.add(uniforms.uWarpPositionFrequency, 'value', 0, 2, 0.001).name('Warp Position Frequency');
-gui.add(uniforms.uWarpTimeFrequency, 'value', 0, 2, 0.001).name('Warp Time Frequency');
+gui.add(uniforms.uWarpPositionFrequency, 'value', 0, 2, 0.001).name('Warp Position');
+gui.add(uniforms.uWarpTimeFrequency, 'value', 0, 2, 0.001).name('Warp Time');
 gui.add(uniforms.uWarpStrength, 'value', 0, 2, 0.001).name('Warp Strength');
 
 gui.add(material, 'metalness', 0, 1, 0.001);
@@ -131,6 +132,17 @@ wobble.customDepthMaterial = depthMaterial;
 wobble.receiveShadow = true;
 wobble.castShadow = true;
 scene.add(wobble);
+
+// // Suzanne Model
+// gltfLoader.load('./suzanne.glb', gltf => {
+//   const wobble = gltf.scene.children[0];
+//   wobble.receiveShadow = true;
+//   wobble.castShadow = true;
+//   wobble.material = material;
+//   wobble.customDepthMaterial = depthMaterial;
+
+//   scene.add(wobble);
+// });
 
 /**
  * Plane
